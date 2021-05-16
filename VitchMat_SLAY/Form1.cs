@@ -96,6 +96,14 @@ namespace VitchMat_SLAY
             TextBox tb = (TextBox)e.Control;
             tb.KeyPress += new KeyPressEventHandler(dataGridView1_KeyPress);
         }
+        private void t_e_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char number = e.KeyChar;
+            if ((e.KeyChar <= 47 || e.KeyChar >= 58) && number != 8)
+            {
+                e.Handled = true;
+            }
+        }
 
         /*Куча проверок закончена*/
 
@@ -163,5 +171,7 @@ namespace VitchMat_SLAY
                 dataGridView2.Rows[i].Cells[0].Value = (Convert.ToDouble(dataGridView3.Rows[i].Cells[0].Value.ToString()) - S) / Convert.ToDouble(U.Rows[i].Cells[i].Value.ToString());
             }
         }
+
+        
     }
 }

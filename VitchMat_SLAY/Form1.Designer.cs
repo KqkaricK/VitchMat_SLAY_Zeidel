@@ -42,6 +42,8 @@ namespace VitchMat_SLAY
             this.darkLabel4 = new DarkUI.Controls.DarkLabel();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.darkLabel5 = new DarkUI.Controls.DarkLabel();
+            this.darkLabel6 = new DarkUI.Controls.DarkLabel();
+            this.t_e = new DarkUI.Controls.DarkTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.L)).BeginInit();
@@ -132,9 +134,9 @@ namespace VitchMat_SLAY
             this.darkButton2.Location = new System.Drawing.Point(541, 13);
             this.darkButton2.Name = "darkButton2";
             this.darkButton2.Padding = new System.Windows.Forms.Padding(5);
-            this.darkButton2.Size = new System.Drawing.Size(73, 23);
+            this.darkButton2.Size = new System.Drawing.Size(98, 23);
             this.darkButton2.TabIndex = 55;
-            this.darkButton2.Text = "Метод LU";
+            this.darkButton2.Text = "Метод Зейделя";
             this.darkButton2.Click += new System.EventHandler(this.darkButton2_Click_1);
             // 
             // L
@@ -223,11 +225,34 @@ namespace VitchMat_SLAY
             this.darkLabel5.TabIndex = 61;
             this.darkLabel5.Text = "y:";
             // 
+            // darkLabel6
+            // 
+            this.darkLabel6.AutoSize = true;
+            this.darkLabel6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.darkLabel6.Location = new System.Drawing.Point(159, 18);
+            this.darkLabel6.Name = "darkLabel6";
+            this.darkLabel6.Size = new System.Drawing.Size(105, 13);
+            this.darkLabel6.TabIndex = 63;
+            this.darkLabel6.Text = "Погрешность e = 0,";
+            // 
+            // t_e
+            // 
+            this.t_e.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(73)))), ((int)(((byte)(74)))));
+            this.t_e.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.t_e.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.t_e.Location = new System.Drawing.Point(264, 16);
+            this.t_e.Name = "t_e";
+            this.t_e.Size = new System.Drawing.Size(51, 20);
+            this.t_e.TabIndex = 62;
+            this.t_e.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.t_e_KeyPress);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(625, 469);
+            this.ClientSize = new System.Drawing.Size(688, 469);
+            this.Controls.Add(this.darkLabel6);
+            this.Controls.Add(this.t_e);
             this.Controls.Add(this.darkLabel5);
             this.Controls.Add(this.dataGridView3);
             this.Controls.Add(this.darkLabel4);
@@ -268,6 +293,8 @@ namespace VitchMat_SLAY
         private DarkUI.Controls.DarkLabel darkLabel4;
         private System.Windows.Forms.DataGridView dataGridView3;
         private DarkUI.Controls.DarkLabel darkLabel5;
+        private DarkUI.Controls.DarkLabel darkLabel6;
+        private DarkUI.Controls.DarkTextBox t_e;
     }
 }
 
