@@ -58,6 +58,22 @@ namespace VitchMat_SLAY
 
         /*Ниже куча проверок*/
 
+        bool IsNumber()
+        {
+            for (int i = 0; i < dataGridView1.RowCount; i++)
+            {
+                for (int j = 0; j < dataGridView1.ColumnCount; j++)
+                {
+                    double d;
+                    if (Double.TryParse(dataGridView1.Rows[i].Cells[j].Value.ToString(), out d) == false)
+                    {
+                        MessageBox.Show("Ошибка! Коэффициенты должны быть числами");
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
         bool Chek()
         {
             if (t_raz.Text == "")
