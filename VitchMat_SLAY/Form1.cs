@@ -72,6 +72,26 @@ namespace VitchMat_SLAY                                                      // 
 
         /*Ниже куча проверок*/
 
+        bool ChekDiagonal()
+        {
+            for (int i = 0; i < dataGridView1.RowCount; i++)
+            {
+                double s = 0;
+                for (int j = 0; j < dataGridView1.RowCount; j++)
+                {
+                    if (i != j)
+                    {
+                        s += Math.Abs(Convert.ToDouble(dataGridView1.Rows[i].Cells[j].Value.ToString()));
+                    }
+                }
+                if (Convert.ToDouble(dataGridView1.Rows[i].Cells[i].Value.ToString()) <= s)
+                {
+                    MessageBox.Show("Невыполняется условие для решения, измините коэф.");
+                    return false;
+                }
+            }
+            return true;
+        }
         bool IsNumber()
         {
             for (int i = 0; i < dataGridView1.RowCount; i++)
@@ -155,10 +175,10 @@ namespace VitchMat_SLAY                                                      // 
 
         private void darkButton2_Click_1(object sender, EventArgs e)
         {
-           // Cleaner();
             int k = 1;
-            if (IsNumber() == true)
+            if (IsNumber() == true && ChekDiagonal() == true)
             {
+                Cleaner();
                 if (t_e.Text == "")
                 {
                     MessageBox.Show("Ошибка ввода E");
@@ -209,10 +229,10 @@ namespace VitchMat_SLAY                                                      // 
 
         private void darkButton3_Click(object sender, EventArgs e)
         {
-            Cleaner();
             int k = 1;
-            if (IsNumber() == true)
+            if (IsNumber() == true && ChekDiagonal() == true)
             {
+                Cleaner();
                 if (t_e.Text == "")
                 {
                     MessageBox.Show("Ошибка ввода E");
