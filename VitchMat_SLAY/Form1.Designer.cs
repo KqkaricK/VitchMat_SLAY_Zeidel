@@ -36,19 +36,23 @@ namespace VitchMat_SLAY
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.darkLabel2 = new DarkUI.Controls.DarkLabel();
             this.darkButton2 = new DarkUI.Controls.DarkButton();
-            this.L = new System.Windows.Forms.DataGridView();
-            this.U = new System.Windows.Forms.DataGridView();
+            this.t_e = new DarkUI.Controls.DarkTextBox();
+            this.darkLabel6 = new DarkUI.Controls.DarkLabel();
+            this.Alpha = new System.Windows.Forms.DataGridView();
+            this.Beta = new System.Windows.Forms.DataGridView();
+            this.TempX = new System.Windows.Forms.DataGridView();
             this.darkLabel3 = new DarkUI.Controls.DarkLabel();
             this.darkLabel4 = new DarkUI.Controls.DarkLabel();
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.darkButton3 = new DarkUI.Controls.DarkButton();
             this.darkLabel5 = new DarkUI.Controls.DarkLabel();
-            this.darkLabel6 = new DarkUI.Controls.DarkLabel();
-            this.t_e = new DarkUI.Controls.DarkTextBox();
+            this.l_k = new DarkUI.Controls.DarkLabel();
+            this.TempX_Zeid = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.L)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.U)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Alpha)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Beta)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TempX)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TempX_Zeid)).BeginInit();
             this.SuspendLayout();
             // 
             // t_raz
@@ -109,7 +113,7 @@ namespace VitchMat_SLAY
             this.dataGridView2.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.ColumnHeadersVisible = false;
-            this.dataGridView2.Location = new System.Drawing.Point(541, 255);
+            this.dataGridView2.Location = new System.Drawing.Point(498, 41);
             this.dataGridView2.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.ReadOnly = true;
@@ -123,7 +127,7 @@ namespace VitchMat_SLAY
             // 
             this.darkLabel2.AutoSize = true;
             this.darkLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.darkLabel2.Location = new System.Drawing.Point(495, 260);
+            this.darkLabel2.Location = new System.Drawing.Point(495, 23);
             this.darkLabel2.Name = "darkLabel2";
             this.darkLabel2.Size = new System.Drawing.Size(41, 13);
             this.darkLabel2.TabIndex = 54;
@@ -131,109 +135,14 @@ namespace VitchMat_SLAY
             // 
             // darkButton2
             // 
-            this.darkButton2.Location = new System.Drawing.Point(541, 13);
+            this.darkButton2.Enabled = false;
+            this.darkButton2.Location = new System.Drawing.Point(383, 283);
             this.darkButton2.Name = "darkButton2";
             this.darkButton2.Padding = new System.Windows.Forms.Padding(5);
-            this.darkButton2.Size = new System.Drawing.Size(98, 23);
+            this.darkButton2.Size = new System.Drawing.Size(102, 23);
             this.darkButton2.TabIndex = 55;
-            this.darkButton2.Text = "Метод Зейделя";
+            this.darkButton2.Text = "Метод Прост. Ит";
             this.darkButton2.Click += new System.EventHandler(this.darkButton2_Click_1);
-            // 
-            // L
-            // 
-            this.L.AllowUserToAddRows = false;
-            this.L.AllowUserToDeleteRows = false;
-            this.L.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.L.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.L.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.L.ColumnHeadersVisible = false;
-            this.L.Location = new System.Drawing.Point(33, 255);
-            this.L.Margin = new System.Windows.Forms.Padding(2);
-            this.L.Name = "L";
-            this.L.ReadOnly = true;
-            this.L.RowHeadersVisible = false;
-            this.L.RowHeadersWidth = 51;
-            this.L.RowTemplate.Height = 24;
-            this.L.Size = new System.Drawing.Size(203, 203);
-            this.L.TabIndex = 56;
-            this.L.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dataGridView1_KeyPress);
-            // 
-            // U
-            // 
-            this.U.AllowUserToAddRows = false;
-            this.U.AllowUserToDeleteRows = false;
-            this.U.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.U.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.U.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.U.ColumnHeadersVisible = false;
-            this.U.Location = new System.Drawing.Point(282, 255);
-            this.U.Margin = new System.Windows.Forms.Padding(2);
-            this.U.Name = "U";
-            this.U.ReadOnly = true;
-            this.U.RowHeadersVisible = false;
-            this.U.RowHeadersWidth = 51;
-            this.U.RowTemplate.Height = 24;
-            this.U.Size = new System.Drawing.Size(203, 203);
-            this.U.TabIndex = 57;
-            this.U.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dataGridView1_KeyPress);
-            // 
-            // darkLabel3
-            // 
-            this.darkLabel3.AutoSize = true;
-            this.darkLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.darkLabel3.Location = new System.Drawing.Point(12, 260);
-            this.darkLabel3.Name = "darkLabel3";
-            this.darkLabel3.Size = new System.Drawing.Size(16, 13);
-            this.darkLabel3.TabIndex = 58;
-            this.darkLabel3.Text = "L:";
-            // 
-            // darkLabel4
-            // 
-            this.darkLabel4.AutoSize = true;
-            this.darkLabel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.darkLabel4.Location = new System.Drawing.Point(261, 260);
-            this.darkLabel4.Name = "darkLabel4";
-            this.darkLabel4.Size = new System.Drawing.Size(18, 13);
-            this.darkLabel4.TabIndex = 59;
-            this.darkLabel4.Text = "U:";
-            // 
-            // dataGridView3
-            // 
-            this.dataGridView3.AllowUserToAddRows = false;
-            this.dataGridView3.AllowUserToDeleteRows = false;
-            this.dataGridView3.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView3.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.ColumnHeadersVisible = false;
-            this.dataGridView3.Location = new System.Drawing.Point(541, 41);
-            this.dataGridView3.Margin = new System.Windows.Forms.Padding(2);
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.ReadOnly = true;
-            this.dataGridView3.RowHeadersVisible = false;
-            this.dataGridView3.RowHeadersWidth = 51;
-            this.dataGridView3.RowTemplate.Height = 24;
-            this.dataGridView3.Size = new System.Drawing.Size(73, 203);
-            this.dataGridView3.TabIndex = 60;
-            // 
-            // darkLabel5
-            // 
-            this.darkLabel5.AutoSize = true;
-            this.darkLabel5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.darkLabel5.Location = new System.Drawing.Point(521, 41);
-            this.darkLabel5.Name = "darkLabel5";
-            this.darkLabel5.Size = new System.Drawing.Size(15, 13);
-            this.darkLabel5.TabIndex = 61;
-            this.darkLabel5.Text = "y:";
-            // 
-            // darkLabel6
-            // 
-            this.darkLabel6.AutoSize = true;
-            this.darkLabel6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.darkLabel6.Location = new System.Drawing.Point(159, 18);
-            this.darkLabel6.Name = "darkLabel6";
-            this.darkLabel6.Size = new System.Drawing.Size(105, 13);
-            this.darkLabel6.TabIndex = 63;
-            this.darkLabel6.Text = "Погрешность e = 0,";
             // 
             // t_e
             // 
@@ -246,19 +155,157 @@ namespace VitchMat_SLAY
             this.t_e.TabIndex = 62;
             this.t_e.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.t_e_KeyPress);
             // 
+            // darkLabel6
+            // 
+            this.darkLabel6.AutoSize = true;
+            this.darkLabel6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.darkLabel6.Location = new System.Drawing.Point(159, 18);
+            this.darkLabel6.Name = "darkLabel6";
+            this.darkLabel6.Size = new System.Drawing.Size(105, 13);
+            this.darkLabel6.TabIndex = 63;
+            this.darkLabel6.Text = "Погрешность e = 0,";
+            // 
+            // Alpha
+            // 
+            this.Alpha.AllowUserToAddRows = false;
+            this.Alpha.AllowUserToDeleteRows = false;
+            this.Alpha.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.Alpha.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.Alpha.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Alpha.ColumnHeadersVisible = false;
+            this.Alpha.Location = new System.Drawing.Point(34, 255);
+            this.Alpha.Margin = new System.Windows.Forms.Padding(2);
+            this.Alpha.Name = "Alpha";
+            this.Alpha.ReadOnly = true;
+            this.Alpha.RowHeadersVisible = false;
+            this.Alpha.RowHeadersWidth = 51;
+            this.Alpha.RowTemplate.Height = 24;
+            this.Alpha.Size = new System.Drawing.Size(203, 203);
+            this.Alpha.TabIndex = 64;
+            // 
+            // Beta
+            // 
+            this.Beta.AllowUserToAddRows = false;
+            this.Beta.AllowUserToDeleteRows = false;
+            this.Beta.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.Beta.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.Beta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Beta.ColumnHeadersVisible = false;
+            this.Beta.Location = new System.Drawing.Point(282, 255);
+            this.Beta.Margin = new System.Windows.Forms.Padding(2);
+            this.Beta.Name = "Beta";
+            this.Beta.ReadOnly = true;
+            this.Beta.RowHeadersVisible = false;
+            this.Beta.RowHeadersWidth = 51;
+            this.Beta.RowTemplate.Height = 24;
+            this.Beta.Size = new System.Drawing.Size(73, 203);
+            this.Beta.TabIndex = 65;
+            // 
+            // TempX
+            // 
+            this.TempX.AllowUserToAddRows = false;
+            this.TempX.AllowUserToDeleteRows = false;
+            this.TempX.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.TempX.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.TempX.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.TempX.ColumnHeadersVisible = false;
+            this.TempX.Location = new System.Drawing.Point(603, 41);
+            this.TempX.Margin = new System.Windows.Forms.Padding(2);
+            this.TempX.Name = "TempX";
+            this.TempX.ReadOnly = true;
+            this.TempX.RowHeadersVisible = false;
+            this.TempX.RowHeadersWidth = 51;
+            this.TempX.RowTemplate.Height = 24;
+            this.TempX.Size = new System.Drawing.Size(73, 203);
+            this.TempX.TabIndex = 66;
+            this.TempX.Visible = false;
+            // 
+            // darkLabel3
+            // 
+            this.darkLabel3.AutoSize = true;
+            this.darkLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.darkLabel3.Location = new System.Drawing.Point(12, 255);
+            this.darkLabel3.Name = "darkLabel3";
+            this.darkLabel3.Size = new System.Drawing.Size(17, 13);
+            this.darkLabel3.TabIndex = 67;
+            this.darkLabel3.Text = "α:";
+            // 
+            // darkLabel4
+            // 
+            this.darkLabel4.AutoSize = true;
+            this.darkLabel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.darkLabel4.Location = new System.Drawing.Point(261, 255);
+            this.darkLabel4.Name = "darkLabel4";
+            this.darkLabel4.Size = new System.Drawing.Size(16, 13);
+            this.darkLabel4.TabIndex = 68;
+            this.darkLabel4.Text = "β:";
+            // 
+            // darkButton3
+            // 
+            this.darkButton3.Enabled = false;
+            this.darkButton3.Location = new System.Drawing.Point(383, 312);
+            this.darkButton3.Name = "darkButton3";
+            this.darkButton3.Padding = new System.Windows.Forms.Padding(5);
+            this.darkButton3.Size = new System.Drawing.Size(102, 23);
+            this.darkButton3.TabIndex = 69;
+            this.darkButton3.Text = "Метод Зейделя";
+            this.darkButton3.Click += new System.EventHandler(this.darkButton3_Click);
+            // 
+            // darkLabel5
+            // 
+            this.darkLabel5.AutoSize = true;
+            this.darkLabel5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.darkLabel5.Location = new System.Drawing.Point(380, 255);
+            this.darkLabel5.Name = "darkLabel5";
+            this.darkLabel5.Size = new System.Drawing.Size(94, 13);
+            this.darkLabel5.TabIndex = 70;
+            this.darkLabel5.Text = "Число Итераций:";
+            // 
+            // l_k
+            // 
+            this.l_k.AutoSize = true;
+            this.l_k.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.l_k.Location = new System.Drawing.Point(480, 255);
+            this.l_k.Name = "l_k";
+            this.l_k.Size = new System.Drawing.Size(10, 13);
+            this.l_k.TabIndex = 71;
+            this.l_k.Text = "-";
+            // 
+            // TempX_Zeid
+            // 
+            this.TempX_Zeid.AllowUserToAddRows = false;
+            this.TempX_Zeid.AllowUserToDeleteRows = false;
+            this.TempX_Zeid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.TempX_Zeid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.TempX_Zeid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.TempX_Zeid.ColumnHeadersVisible = false;
+            this.TempX_Zeid.Location = new System.Drawing.Point(703, 41);
+            this.TempX_Zeid.Margin = new System.Windows.Forms.Padding(2);
+            this.TempX_Zeid.Name = "TempX_Zeid";
+            this.TempX_Zeid.ReadOnly = true;
+            this.TempX_Zeid.RowHeadersVisible = false;
+            this.TempX_Zeid.RowHeadersWidth = 51;
+            this.TempX_Zeid.RowTemplate.Height = 24;
+            this.TempX_Zeid.Size = new System.Drawing.Size(73, 203);
+            this.TempX_Zeid.TabIndex = 72;
+            this.TempX_Zeid.Visible = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(688, 469);
-            this.Controls.Add(this.darkLabel6);
-            this.Controls.Add(this.t_e);
+            this.ClientSize = new System.Drawing.Size(581, 471);
+            this.Controls.Add(this.TempX_Zeid);
+            this.Controls.Add(this.l_k);
             this.Controls.Add(this.darkLabel5);
-            this.Controls.Add(this.dataGridView3);
+            this.Controls.Add(this.darkButton3);
             this.Controls.Add(this.darkLabel4);
             this.Controls.Add(this.darkLabel3);
-            this.Controls.Add(this.U);
-            this.Controls.Add(this.L);
+            this.Controls.Add(this.TempX);
+            this.Controls.Add(this.Beta);
+            this.Controls.Add(this.Alpha);
+            this.Controls.Add(this.darkLabel6);
+            this.Controls.Add(this.t_e);
             this.Controls.Add(this.darkButton2);
             this.Controls.Add(this.darkLabel2);
             this.Controls.Add(this.dataGridView2);
@@ -270,9 +317,10 @@ namespace VitchMat_SLAY
             this.Text = "Решение СЛАУ";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.L)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.U)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Alpha)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Beta)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TempX)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TempX_Zeid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -287,14 +335,17 @@ namespace VitchMat_SLAY
         private System.Windows.Forms.DataGridView dataGridView2;
         private DarkUI.Controls.DarkLabel darkLabel2;
         private DarkUI.Controls.DarkButton darkButton2;
-        private System.Windows.Forms.DataGridView L;
-        private System.Windows.Forms.DataGridView U;
+        private DarkUI.Controls.DarkTextBox t_e;
+        private DarkUI.Controls.DarkLabel darkLabel6;
+        private System.Windows.Forms.DataGridView Alpha;
+        private System.Windows.Forms.DataGridView Beta;
+        private System.Windows.Forms.DataGridView TempX;
         private DarkUI.Controls.DarkLabel darkLabel3;
         private DarkUI.Controls.DarkLabel darkLabel4;
-        private System.Windows.Forms.DataGridView dataGridView3;
+        private DarkUI.Controls.DarkButton darkButton3;
         private DarkUI.Controls.DarkLabel darkLabel5;
-        private DarkUI.Controls.DarkLabel darkLabel6;
-        private DarkUI.Controls.DarkTextBox t_e;
+        private DarkUI.Controls.DarkLabel l_k;
+        private System.Windows.Forms.DataGridView TempX_Zeid;
     }
 }
 

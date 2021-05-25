@@ -8,9 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DarkUI.Forms;
-
-namespace VitchMat_SLAY
-{
+                                                                             // для теста:
+namespace VitchMat_SLAY                                                      // 5  -1  3
+{                                                                            // 2   3  25
     public partial class Form1 : DarkForm
     {
         public Form1()
@@ -20,9 +20,6 @@ namespace VitchMat_SLAY
         void Razmer()
         {
             dataGridView1.Rows.Clear();
-            dataGridView2.Rows.Clear();
-            L.Rows.Clear();
-            U.Rows.Clear();
             dataGridView1.RowCount = Convert.ToInt32(t_raz.Text);
             dataGridView1.ColumnCount = Convert.ToInt32(t_raz.Text) + 1;
             for (int i = 0; i < dataGridView1.RowCount; i++)
@@ -33,16 +30,31 @@ namespace VitchMat_SLAY
                     dataGridView1.Rows[i].Cells[j].Value = 0;
                 }
             }
-            dataGridView2.RowCount = dataGridView1.RowCount;
-            dataGridView3.RowCount = dataGridView1.RowCount;
-            L.RowCount = dataGridView1.RowCount;
-            L.ColumnCount = dataGridView1.RowCount;
-            U.RowCount = dataGridView1.RowCount;
-            U.ColumnCount = dataGridView1.RowCount;
+            Cleaner();
         }
         double Slay(int i, int j)
         {
             return Convert.ToDouble(dataGridView1.Rows[i].Cells[j].Value.ToString());
+        }
+        void Cleaner()
+        {
+            dataGridView2.Rows.Clear();
+            Alpha.Rows.Clear();
+            Beta.Rows.Clear();
+            TempX.Rows.Clear();
+            TempX_Zeid.Rows.Clear();
+            dataGridView2.RowCount = dataGridView1.RowCount;
+            TempX.RowCount = dataGridView1.RowCount;
+            TempX_Zeid.RowCount = dataGridView1.RowCount;
+            Alpha.RowCount = dataGridView1.RowCount;
+            Alpha.ColumnCount = dataGridView1.RowCount;
+            Beta.RowCount = dataGridView1.RowCount;
+            for (int i = 0; i < dataGridView1.RowCount; i++)
+            {
+                dataGridView2.Rows[i].Cells[0].Value = 0;
+                TempX.Rows[i].Cells[0].Value = 0;
+                TempX_Zeid.Rows[i].Cells[0].Value = 0;
+            }
         }
         private void darkButton1_Click(object sender, EventArgs e)
         {
@@ -53,6 +65,8 @@ namespace VitchMat_SLAY
             else
             {
                 Razmer();
+                darkButton2.Enabled = true;
+                darkButton3.Enabled = true;
             }
         }
 
@@ -80,7 +94,7 @@ namespace VitchMat_SLAY
             {
                 return false;
             }
-            else if(Convert.ToInt32(t_raz.Text) < 2 || Convert.ToInt32(t_raz.Text) > 10)
+            else if (Convert.ToInt32(t_raz.Text) < 2 || Convert.ToInt32(t_raz.Text) > 10)
             {
                 return false;
             }
@@ -120,74 +134,136 @@ namespace VitchMat_SLAY
                 e.Handled = true;
             }
         }
+        bool ChekEpsilon(double E, DataGridView A)
+        {
+            double s = 0;
+            for (int i = 0; i < dataGridView1.RowCount; i++)
+            {
+                s += (Convert.ToDouble(dataGridView2.Rows[i].Cells[0].Value.ToString()) - Convert.ToDouble(A.Rows[i].Cells[0].Value.ToString())) * (Convert.ToDouble(dataGridView2.Rows[i].Cells[0].Value.ToString()) - Convert.ToDouble(A.Rows[i].Cells[0].Value.ToString()));
+            }
+            if (Math.Sqrt(s) < E)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
 
         /*Куча проверок закончена*/
 
         private void darkButton2_Click_1(object sender, EventArgs e)
         {
-            for (int i = 0; i < dataGridView1.RowCount; i++) //+0
+           // Cleaner();
+            int k = 1;
+            if (IsNumber() == true)
             {
-                dataGridView2.Rows[i].Cells[0].Value = 0;
-                for (int j = 0; j < dataGridView1.ColumnCount - 1; j++)
+                if (t_e.Text == "")
                 {
-                    if (i < j)
-                    {
-                        L.Rows[i].Cells[j].Value = 0;
-                    }
-                    else if (i >= j)
-                    {
-                        U.Rows[i].Cells[j].Value = 0;
-                    }
+                    MessageBox.Show("Ошибка ввода E");
                 }
-            }
-            for (int i = 0; i < dataGridView1.RowCount; i++)  //Вычисление L и U
-            {
-                for (int k = i; k < dataGridView1.RowCount; k++)
+                else
                 {
-                    double S = 0;
-                    for (int j = 0; j < i; j++)
+                    double E = Convert.ToDouble("0," + t_e.Text);
+                    for (int i = 0; i < dataGridView1.RowCount; i++) //Alpha i Beta
                     {
-                        S += (Convert.ToDouble(L.Rows[i].Cells[j].Value.ToString()) * Convert.ToDouble(U.Rows[j].Cells[k].Value.ToString()));
-                    }
-                    U.Rows[i].Cells[k].Value = Slay(i, k) - S;
-                }
-                for (int k = i; k < dataGridView1.RowCount; k++)
-                {
-                    if (i == k)
-                    {
-                        L.Rows[i].Cells[i].Value = 1;
-                    }
-                    else
-                    {
-                        double S = 0;
-                        for (int j = 0; j < i; j++)
+                        Beta.Rows[i].Cells[0].Value = Slay(i, dataGridView1.RowCount) / Slay(i, i);
+                        for (int j = 0; j < dataGridView1.RowCount; j++)
                         {
-                            S += (Convert.ToDouble(L.Rows[k].Cells[j].Value.ToString()) * Convert.ToDouble(U.Rows[j].Cells[i].Value.ToString()));
+                            if (i == j)
+                            {
+                                Alpha.Rows[i].Cells[j].Value = 0;
+                            }
+                            else
+                            {
+                                Alpha.Rows[i].Cells[j].Value = -1 * (Slay(i, j) / Slay(i, i));
+                            }
                         }
-                        L.Rows[k].Cells[i].Value = (Slay(k, i) - S) / Convert.ToDouble(U.Rows[i].Cells[i].Value.ToString());
                     }
+                    for (int i = 0; i < dataGridView1.RowCount; i++)  //1 raz
+                    {
+                        dataGridView2.Rows[i].Cells[0].Value = Beta.Rows[i].Cells[0].Value;
+                    }
+                    while (ChekEpsilon(E, TempX) == false)
+                    {
+                        for (int i = 0; i < dataGridView1.RowCount; i++)
+                        {
+                            TempX.Rows[i].Cells[0].Value = dataGridView2.Rows[i].Cells[0].Value;
+                        }
+                        for (int i = 0; i < dataGridView1.RowCount; i++)
+                        {
+                            dataGridView2.Rows[i].Cells[0].Value = 0;
+                            for (int j = 0; j < dataGridView1.RowCount; j++)
+                            {
+                                dataGridView2.Rows[i].Cells[0].Value = Convert.ToDouble(dataGridView2.Rows[i].Cells[0].Value.ToString()) + (Convert.ToDouble(Alpha.Rows[i].Cells[j].Value.ToString()) * Convert.ToDouble(TempX.Rows[j].Cells[0].Value.ToString()));
+                            }
+                            dataGridView2.Rows[i].Cells[0].Value = Convert.ToDouble(Beta.Rows[i].Cells[0].Value.ToString()) + Convert.ToDouble(dataGridView2.Rows[i].Cells[0].Value.ToString());
+                        }
+                        k++;
+                    }
+                    l_k.Text = k.ToString();
                 }
-            }
-            for (int i = 0; i < dataGridView1.RowCount; i++) // решение Ly = B
-            {
-                double S = 0;
-                for (int k = 0; k < i; k++)
-                {
-                    S += Convert.ToDouble(L.Rows[i].Cells[k].Value.ToString()) * Convert.ToDouble(dataGridView3.Rows[k].Cells[0].Value.ToString());
-                }
-                dataGridView3.Rows[i].Cells[0].Value = Convert.ToDouble(dataGridView1.Rows[i].Cells[dataGridView1.ColumnCount - 1].Value.ToString()) - S;
-            }
-            for (int i = dataGridView1.RowCount - 1; i >= 0; i--) // решение Ux = y
-            {
-                double S = 0;
-                for (int k = dataGridView1.RowCount - 1; k > 0; k--)
-                {
-                    S += Convert.ToDouble(U.Rows[i].Cells[k].Value.ToString()) * Convert.ToDouble(dataGridView2.Rows[k].Cells[0].Value.ToString());
-                }
-                dataGridView2.Rows[i].Cells[0].Value = (Convert.ToDouble(dataGridView3.Rows[i].Cells[0].Value.ToString()) - S) / Convert.ToDouble(U.Rows[i].Cells[i].Value.ToString());
             }
         }
 
-        
+        private void darkButton3_Click(object sender, EventArgs e)
+        {
+            Cleaner();
+            int k = 1;
+            if (IsNumber() == true)
+            {
+                if (t_e.Text == "")
+                {
+                    MessageBox.Show("Ошибка ввода E");
+                }
+                else
+                {
+                    double E = Convert.ToDouble("0," + t_e.Text);
+                    for (int i = 0; i < dataGridView1.RowCount; i++) //Alpha i Beta
+                    {
+                        Beta.Rows[i].Cells[0].Value = Slay(i, dataGridView1.RowCount) / Slay(i, i);
+                        for (int j = 0; j < dataGridView1.RowCount; j++)
+                        {
+                            if (i == j)
+                            {
+                                Alpha.Rows[i].Cells[j].Value = 0;
+                            }
+                            else
+                            {
+                                Alpha.Rows[i].Cells[j].Value = -1 * (Slay(i, j) / Slay(i, i));
+                            }
+                        }
+                    }
+                    for (int i = 0; i < dataGridView1.RowCount; i++) // 1 raz
+                    {
+                        TempX_Zeid.Rows[i].Cells[0].Value = dataGridView2.Rows[i].Cells[0].Value;
+                        dataGridView2.Rows[i].Cells[0].Value = 0;
+                        for (int j = 0; j < dataGridView1.RowCount; j++)
+                        {
+                            dataGridView2.Rows[i].Cells[0].Value = Convert.ToDouble(dataGridView2.Rows[i].Cells[0].Value.ToString()) + (Convert.ToDouble(Alpha.Rows[i].Cells[j].Value.ToString()) * Convert.ToDouble(TempX.Rows[j].Cells[0].Value.ToString()));
+                        }
+                        dataGridView2.Rows[i].Cells[0].Value = Convert.ToDouble(Beta.Rows[i].Cells[0].Value.ToString()) + Convert.ToDouble(dataGridView2.Rows[i].Cells[0].Value.ToString());
+                        TempX.Rows[i].Cells[0].Value = dataGridView2.Rows[i].Cells[0].Value;
+                    }
+                    while (ChekEpsilon(E, TempX_Zeid) == false)
+                    {
+                        for (int i = 0; i < dataGridView1.RowCount; i++)
+                        {
+                            TempX_Zeid.Rows[i].Cells[0].Value = dataGridView2.Rows[i].Cells[0].Value;
+                            dataGridView2.Rows[i].Cells[0].Value = 0;
+                            for (int j = 0; j < dataGridView1.RowCount; j++)
+                            {
+                                dataGridView2.Rows[i].Cells[0].Value = Convert.ToDouble(dataGridView2.Rows[i].Cells[0].Value.ToString()) + (Convert.ToDouble(Alpha.Rows[i].Cells[j].Value.ToString()) * Convert.ToDouble(TempX.Rows[j].Cells[0].Value.ToString()));
+                            }
+                            dataGridView2.Rows[i].Cells[0].Value = Convert.ToDouble(Beta.Rows[i].Cells[0].Value.ToString()) + Convert.ToDouble(dataGridView2.Rows[i].Cells[0].Value.ToString());
+                            TempX.Rows[i].Cells[0].Value = dataGridView2.Rows[i].Cells[0].Value;
+                        }
+                        k++;
+                    }
+                    l_k.Text = k.ToString();
+                }
+            }
+        }
     }
 }
